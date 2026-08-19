@@ -1,0 +1,1043 @@
+/* Reset y variables de diseño con temática Cyber/Neón */
+:root {
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --accent-neon: #ec4899;
+  --cyan-neon: #06b6d4;
+  --bg-gradient: linear-gradient(-45deg, #0f172a, #1e1b4b, #311042, #0f172a);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fondo animado multicapa */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-gradient);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar flotante con efecto cristal resplandeciente */
+.navbar {
+  position: sticky;
+  top: 15px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 20px;
+  z-index: 100;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.navbar-content {
+  min-height: 70px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo animado con destellos neón */
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+  background: linear-gradient(90deg, #ec4899, #6366f1, #06b6d4, #ec4899);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logoGlow 6s linear infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+/* Enlaces con efecto magnetismo y línea deslizante */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+nav a {
+  position: relative;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.5s ease;
+}
+
+nav a:hover::before {
+  left: 100%;
+}
+
+nav a:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Estado activo futurista */
+nav a.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-neon));
+  box-shadow: var(--shadow-glow);
+  animation: pulseGlow 2s infinite alternate;
+}
+
+/* Tarjeta interactiva con efecto Glassmorphism 3D */
+.page {
+  width: 100%;
+  max-width: none;
+  min-height: calc(100vh - 120px);
+
+  margin: 0;
+  padding: 30px;
+
+  background: transparent;
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  box-sizing: border-box;
+}
+
+/* Título con resplandor y subraya animada */
+.page h2 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.page h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-neon), var(--cyan-neon), transparent);
+  border-radius: 4px;
+  animation: lineExpand 1s ease-out forwards;
+}
+
+/* Footer con borde de luz */
+.footer {
+  padding: 40px 20px;
+  text-align: center;
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text-muted);
+  font-size: 14px;
+  border-top: 1px solid var(--glass-border);
+  position: relative;
+}
+
+/* KEYFRAMES DE ANIMACIONES */
+
+/* 1. Movimiento continuo del fondo */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 2. Desplazamiento de colores del logo */
+@keyframes logoGlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* 3. Pulso de resplandor para el enlace activo */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.4); }
+  100% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.8); }
+}
+
+/* 4. Entrada flotante para la página */
+@keyframes floatCard {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 5. Expansión de la línea decorativa */
+@keyframes lineExpand {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* =========================================
+   MODO CLARO
+========================================= */
+
+body.theme-light {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+
+/* Fondo general */
+
+body.theme-light .dashboard-container,
+body.theme-light .home-container,
+body.theme-light .configuracion-container {
+  color: #0f172a;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+body.theme-light .dashboard-sidebar {
+  background: rgba(255, 255, 255, 0.85);
+
+  border-right: 1px solid rgba(15, 23, 42, 0.1);
+
+  box-shadow: 5px 0 25px rgba(15, 23, 42, 0.05);
+}
+
+
+/* Título sidebar */
+
+body.theme-light .sidebar-header h3 {
+  color: #0f172a;
+}
+
+
+/* Links */
+
+body.theme-light .sidebar-nav a {
+  color: #64748b;
+}
+
+body.theme-light .sidebar-nav a:hover {
+  color: #0f172a;
+
+  background: rgba(99, 102, 241, 0.08);
+}
+
+body.theme-light .sidebar-nav a.active {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+body.theme-light .dashboard-content {
+  color: #0f172a;
+}
+
+
+/* =========================================
+   HEADERS
+========================================= */
+
+body.theme-light .dashboard-header h2,
+body.theme-light .home-header h1,
+body.theme-light .configuracion-header h1 {
+  color: #0f172a;
+}
+
+body.theme-light .dashboard-header p,
+body.theme-light .home-header p,
+body.theme-light .configuracion-header p {
+  color: #64748b;
+}
+
+
+/* =========================================
+   TARJETAS
+========================================= */
+
+body.theme-light .stat-card,
+body.theme-light .dashboard-card,
+body.theme-light .home-card,
+body.theme-light .config-card,
+body.theme-light .configuracion-menu {
+  background: rgba(255, 255, 255, 0.85);
+
+  border-color: rgba(15, 23, 42, 0.1);
+
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+
+/* Títulos de tarjetas */
+
+body.theme-light .stat-info h3,
+body.theme-light .home-card-header h2,
+body.theme-light .config-card-header h2,
+body.theme-light .dashboard-card h3 {
+  color: #0f172a;
+}
+
+
+/* Textos */
+
+body.theme-light .stat-info span,
+body.theme-light .home-card-header p,
+body.theme-light .config-card-header p {
+  color: #64748b;
+}
+
+
+/* =========================================
+   TABLAS
+========================================= */
+
+body.theme-light table {
+  color: #0f172a;
+}
+
+body.theme-light th {
+  color: #64748b;
+
+  border-bottom-color: rgba(15, 23, 42, 0.1);
+}
+
+body.theme-light td {
+  color: #334155;
+
+  border-bottom-color: rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================
+   CONFIGURACIÓN
+========================================= */
+
+body.theme-light .config-menu-item {
+  color: #64748b;
+}
+
+body.theme-light .config-menu-item:hover {
+  color: #0f172a;
+
+  background: rgba(15, 23, 42, 0.04);
+}
+
+body.theme-light .config-menu-item.active {
+  color: #0f172a;
+
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.12),
+    rgba(236, 72, 153, 0.12)
+  );
+}
+
+body.theme-light .config-menu-item strong {
+  color: #0f172a;
+}
+
+
+/* =========================================
+   FORMULARIOS
+========================================= */
+
+body.theme-light .config-form-group label {
+  color: #334155;
+}
+
+body.theme-light .config-form-group input,
+body.theme-light .config-form-group select {
+  background: #ffffff;
+
+  color: #0f172a;
+
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-light .config-form-group select option {
+  background: #ffffff;
+
+  color: #0f172a;
+}
+
+
+/* =========================================
+   FECHA
+========================================= */
+
+body.theme-light .home-date {
+  background: rgba(255, 255, 255, 0.8);
+
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+body.theme-light .home-date strong {
+  color: #0f172a;
+}
+
+
+/* =========================================
+   ACTIVIDAD
+========================================= */
+
+body.theme-light .home-activity-item {
+  border-bottom-color: rgba(15, 23, 42, 0.08);
+}
+
+body.theme-light .activity-info strong {
+  color: #0f172a;
+}
+
+body.theme-light .activity-info span {
+  color: #64748b;
+}
+
+
+/* =========================================
+   ACCIONES
+========================================= */
+
+body.theme-light .quick-action {
+  background: rgba(15, 23, 42, 0.03);
+
+  border-color: rgba(15, 23, 42, 0.08);
+
+  color: #0f172a;
+}
+
+body.theme-light .quick-action:hover {
+  background: rgba(99, 102, 241, 0.08);
+}
+
+
+/* =========================================
+   BOTONES SECUNDARIOS
+========================================= */
+
+body.theme-light .cancel-button,
+body.theme-light .secondary-button {
+  background: rgba(15, 23, 42, 0.04);
+
+  color: #334155;
+
+  border-color: rgba(15, 23, 42, 0.1);
+}
+
+
+/* =========================================
+   BIENVENIDA
+========================================= */
+
+body.theme-light .home-welcome-box {
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.08),
+    rgba(236, 72, 153, 0.08)
+  );
+
+  border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.theme-light .home-welcome-box h2 {
+  color: #0f172a;
+}
+
+body.theme-light .home-welcome-box p {
+  color: #64748b;
+}
+
+/* =========================================
+   MODO SISTEMA - TEMA CLARO PROFESIONAL
+========================================= */
+
+@media (prefers-color-scheme: light) {
+
+  /* =========================================
+     FONDO GENERAL
+  ========================================= */
+
+  body.theme-sistema {
+    background: #f4f6f9;
+    color: #1e293b;
+  }
+
+  /* =========================================
+     SIDEBAR
+  ========================================= */
+
+  body.theme-sistema .dashboard-sidebar {
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    box-shadow: 4px 0 18px rgba(15, 23, 42, 0.04);
+  }
+
+  body.theme-sistema .sidebar-header {
+    border-bottom-color: #e2e8f0;
+  }
+
+  body.theme-sistema .sidebar-header h3 {
+    color: #1e293b;
+  }
+
+  body.theme-sistema .sidebar-nav a {
+    color: #64748b;
+  }
+
+  body.theme-sistema .sidebar-nav a:hover {
+    color: #334155;
+    background: #f8fafc;
+  }
+
+  body.theme-sistema .sidebar-nav a.active {
+    color: #ffffff;
+    background: linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed
+    );
+
+    box-shadow:
+      0 6px 18px rgba(79, 70, 229, 0.2);
+  }
+
+
+  /* =========================================
+     ENCABEZADOS
+  ========================================= */
+
+  body.theme-sistema .dashboard-header h2,
+  body.theme-sistema .home-header h1,
+  body.theme-sistema .configuracion-header h1 {
+    color: #0f172a;
+  }
+
+  body.theme-sistema .dashboard-header p,
+  body.theme-sistema .home-header p,
+  body.theme-sistema .configuracion-header p {
+    color: #64748b;
+  }
+
+  body.theme-sistema .home-label,
+  body.theme-sistema .configuracion-label {
+    color: #7c3aed;
+  }
+
+
+  /* =========================================
+     FECHA / INFORMACIÓN
+  ========================================= */
+
+  body.theme-sistema .home-date {
+    background: #ffffff;
+    border-color: #e2e8f0;
+
+    box-shadow:
+      0 4px 14px rgba(15, 23, 42, 0.04);
+  }
+
+  body.theme-sistema .home-date span {
+    color: #64748b;
+  }
+
+  body.theme-sistema .home-date strong {
+    color: #1e293b;
+  }
+
+
+  /* =========================================
+     TARJETAS
+  ========================================= */
+
+  body.theme-sistema .stat-card,
+  body.theme-sistema .dashboard-card,
+  body.theme-sistema .home-card,
+  body.theme-sistema .config-card,
+  body.theme-sistema .configuracion-menu {
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+      0 8px 25px rgba(15, 23, 42, 0.05);
+  }
+
+  body.theme-sistema .stat-card:hover,
+  body.theme-sistema .home-stat-card:hover {
+
+    border-color: #cbd5e1;
+
+    box-shadow:
+      0 12px 30px rgba(15, 23, 42, 0.08);
+  }
+
+
+  /* =========================================
+     ESTADÍSTICAS
+  ========================================= */
+
+  body.theme-sistema .stat-info h3,
+  body.theme-sistema .home-stat-card h2 {
+    color: #0f172a;
+  }
+
+  body.theme-sistema .stat-info span,
+  body.theme-sistema .home-stat-card span {
+    color: #64748b;
+  }
+
+  body.theme-sistema .trend.neutral,
+  body.theme-sistema .neutral {
+    color: #64748b;
+  }
+
+
+  /* =========================================
+     ICONOS
+  ========================================= */
+
+  body.theme-sistema .stat-icon {
+    background: #f1f5f9;
+  }
+
+  body.theme-sistema .home-stat-icon.purple {
+    background: #eef2ff;
+  }
+
+  body.theme-sistema .home-stat-icon.pink {
+    background: #fdf2f8;
+  }
+
+  body.theme-sistema .home-stat-icon.green {
+    background: #ecfdf5;
+  }
+
+  body.theme-sistema .home-stat-icon.orange {
+    background: #fffbeb;
+  }
+
+
+  /* =========================================
+     TÍTULOS DE TARJETAS
+  ========================================= */
+
+  body.theme-sistema .home-card-header h2,
+  body.theme-sistema .config-card-header h2,
+  body.theme-sistema .dashboard-card h3 {
+    color: #0f172a;
+  }
+
+  body.theme-sistema .home-card-header p,
+  body.theme-sistema .config-card-header p {
+    color: #64748b;
+  }
+
+
+  /* =========================================
+     RESUMEN
+  ========================================= */
+
+  body.theme-sistema .overview-item {
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+  }
+
+  body.theme-sistema .overview-item span {
+    color: #64748b;
+  }
+
+  body.theme-sistema .overview-item strong {
+    color: #1e293b;
+  }
+
+  body.theme-sistema .overview-icon {
+    background: #eef2ff;
+  }
+
+
+  /* =========================================
+     ACTIVIDAD
+  ========================================= */
+
+  body.theme-sistema .home-activity-item {
+    border-bottom-color: #e2e8f0;
+  }
+
+  body.theme-sistema .activity-info strong {
+    color: #1e293b;
+  }
+
+  body.theme-sistema .activity-info span,
+  body.theme-sistema .home-activity-item time {
+    color: #64748b;
+  }
+
+  body.theme-sistema .activity-icon.purple {
+    background: #eef2ff;
+  }
+
+  body.theme-sistema .activity-icon.pink {
+    background: #fdf2f8;
+  }
+
+  body.theme-sistema .activity-icon.green {
+    background: #ecfdf5;
+  }
+
+  body.theme-sistema .activity-icon.orange {
+    background: #fffbeb;
+  }
+
+
+  /* =========================================
+     BOTONES
+  ========================================= */
+
+  body.theme-sistema .btn-primary,
+  body.theme-sistema .save-button {
+
+    background: linear-gradient(
+      135deg,
+      #4f46e5,
+      #7c3aed
+    );
+
+    color: #ffffff;
+
+    box-shadow:
+      0 5px 15px rgba(79, 70, 229, 0.18);
+  }
+
+  body.theme-sistema .btn-primary:hover,
+  body.theme-sistema .save-button:hover {
+
+    box-shadow:
+      0 8px 22px rgba(79, 70, 229, 0.28);
+  }
+
+
+  /* =========================================
+     FORMULARIOS
+  ========================================= */
+
+  body.theme-sistema .config-form-group label {
+    color: #334155;
+  }
+
+  body.theme-sistema .config-form-group input,
+  body.theme-sistema .config-form-group select {
+
+    background: #ffffff;
+
+    color: #1e293b;
+
+    border: 1px solid #cbd5e1;
+
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.03);
+  }
+
+  body.theme-sistema .config-form-group input::placeholder {
+    color: #94a3b8;
+  }
+
+  body.theme-sistema .config-form-group input:focus,
+  body.theme-sistema .config-form-group select:focus {
+
+    border-color: #6366f1;
+
+    box-shadow:
+      0 0 0 3px rgba(99, 102, 241, 0.1);
+  }
+
+  body.theme-sistema .config-form-group select option {
+    background: #ffffff;
+    color: #1e293b;
+  }
+
+
+  /* =========================================
+     MENÚ DE CONFIGURACIÓN
+  ========================================= */
+
+  body.theme-sistema .config-menu-item {
+    color: #64748b;
+  }
+
+  body.theme-sistema .config-menu-item:hover {
+    background: #f8fafc;
+    color: #1e293b;
+  }
+
+  body.theme-sistema .config-menu-item.active {
+
+    background: #eef2ff;
+
+    border-color: #c7d2fe;
+
+    color: #4338ca;
+  }
+
+  body.theme-sistema .config-menu-item strong {
+    color: inherit;
+  }
+
+  body.theme-sistema .config-menu-item small {
+    color: #94a3b8;
+  }
+
+  body.theme-sistema .config-menu-icon {
+    background: #f1f5f9;
+  }
+
+  body.theme-sistema
+  .config-menu-item.active
+  .config-menu-icon {
+    background: #e0e7ff;
+  }
+
+
+  /* =========================================
+     SEGURIDAD
+  ========================================= */
+
+  body.theme-sistema .security-item {
+    border-bottom-color: #e2e8f0;
+  }
+
+  body.theme-sistema .security-info h3 {
+    color: #1e293b;
+  }
+
+  body.theme-sistema .security-info p {
+    color: #64748b;
+  }
+
+  body.theme-sistema .security-icon {
+    background: #eef2ff;
+  }
+
+
+  /* =========================================
+     NOTIFICACIONES
+  ========================================= */
+
+  body.theme-sistema .notification-item {
+    border-bottom-color: #e2e8f0;
+  }
+
+  body.theme-sistema .notification-item h3 {
+    color: #1e293b;
+  }
+
+  body.theme-sistema .notification-item p {
+    color: #64748b;
+  }
+
+
+  /* =========================================
+     ZONA PELIGRO
+  ========================================= */
+
+  body.theme-sistema .danger-zone {
+
+    background: #fff7f7;
+
+    border-color: #fecaca;
+  }
+
+  body.theme-sistema .danger-zone h3 {
+    color: #dc2626;
+  }
+
+  body.theme-sistema .danger-zone p {
+    color: #64748b;
+  }
+
+  body.theme-sistema .danger-button {
+
+    background: #fef2f2;
+
+    border-color: #fecaca;
+
+    color: #dc2626;
+  }
+
+  body.theme-sistema .danger-button:hover {
+    background: #fee2e2;
+  }
+
+
+  /* =========================================
+     ACCIONES RÁPIDAS
+  ========================================= */
+
+  body.theme-sistema .quick-action {
+
+    background: #f8fafc;
+
+    border-color: #e2e8f0;
+
+    color: #1e293b;
+  }
+
+  body.theme-sistema .quick-action:hover {
+
+    background: #f1f5f9;
+
+    border-color: #c7d2fe;
+  }
+
+  body.theme-sistema .quick-action > span {
+    background: #eef2ff;
+  }
+
+  body.theme-sistema .quick-action small {
+    color: #64748b;
+  }
+
+
+  /* =========================================
+     PROGRESO
+  ========================================= */
+
+  body.theme-sistema .home-progress {
+    background: #e2e8f0;
+  }
+
+  body.theme-sistema .progress-header span {
+    color: #64748b;
+  }
+
+
+  /* =========================================
+     MENSAJE FINAL
+  ========================================= */
+
+  body.theme-sistema .home-welcome-box {
+
+    background: linear-gradient(
+      135deg,
+      #eef2ff,
+      #fdf2f8
+    );
+
+    border-color: #e2e8f0;
+  }
+
+  body.theme-sistema .home-welcome-box h2 {
+    color: #1e293b;
+  }
+
+  body.theme-sistema .home-welcome-box p {
+    color: #64748b;
+  }
+
+  body.theme-sistema .welcome-icon {
+    background: #fce7f3;
+  }
+
+
+  /* =========================================
+     TABLAS
+  ========================================= */
+
+  body.theme-sistema table {
+    color: #334155;
+  }
+
+  body.theme-sistema th {
+    color: #64748b;
+    border-bottom-color: #e2e8f0;
+  }
+
+  body.theme-sistema td {
+    color: #334155;
+    border-bottom-color: #f1f5f9;
+  }
+
+  body.theme-sistema tr:hover {
+    background: #f8fafc;
+  }
+
+
+  /* =========================================
+     SCROLLBAR
+  ========================================= */
+
+  body.theme-sistema::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  body.theme-sistema::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+
+  body.theme-sistema::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+
+  body.theme-sistema::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
